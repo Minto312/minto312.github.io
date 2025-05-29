@@ -23,7 +23,7 @@ export default function Portfolio() {
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-900 dark:to-slate-800">
       {/* Header */}
       <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-        <div className="container flex h-14 items-center">
+        <div className="mx-auto container flex h-14 items-center">
           <div className="mr-4 hidden md:flex">
             <a className="mr-6 flex items-center space-x-2" href="/">
               <Code className="h-6 w-6" />
@@ -56,7 +56,7 @@ export default function Portfolio() {
       </header>
 
       {/* Hero Section */}
-      <section className="container px-4 py-24 md:py-32">
+      <section className="mx-auto container px-4 py-24 md:py-32">
         <div className="flex flex-col items-center text-center space-y-8">
           <div className="space-y-4">
             <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl">田中 太郎</h1>
@@ -93,7 +93,7 @@ export default function Portfolio() {
       </section>
 
       {/* About Section */}
-      <section id="about" className="container px-4 py-16">
+      <section id="about" className="mx-auto container px-4 py-16">
         <div className="mx-auto max-w-4xl">
           <h2 className="text-3xl font-bold tracking-tighter mb-8 text-center">About Me</h2>
           <Card>
@@ -135,7 +135,7 @@ export default function Portfolio() {
       </section>
 
       {/* Skills Section */}
-      <section id="skills" className="container px-4 py-16 bg-muted/50">
+      <section id="skills" className="mx-auto container px-4 py-16 bg-muted/50">
         <div className="mx-auto max-w-4xl">
           <h2 className="text-3xl font-bold tracking-tighter mb-8 text-center">Skills</h2>
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
@@ -206,7 +206,7 @@ export default function Portfolio() {
       </section>
 
       {/* Projects Section */}
-      <section id="projects" className="container px-4 py-16">
+      <section id="projects" className="mx-auto container px-4 py-16">
         <div className="mx-auto max-w-6xl">
           <h2 className="text-3xl font-bold tracking-tighter mb-8 text-center">Projects</h2>
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -315,7 +315,7 @@ export default function Portfolio() {
       </section>
 
       {/* Experience Section */}
-      <section id="experience" className="container px-4 py-16 bg-muted/50">
+      <section id="experience" className="mx-auto container px-4 py-16 bg-muted/50">
         <div className="mx-auto max-w-4xl">
           <h2 className="text-3xl font-bold tracking-tighter mb-8 text-center">Experience</h2>
           <div className="space-y-6">
@@ -377,7 +377,7 @@ export default function Portfolio() {
       </section>
 
       {/* SNS Section */}
-      <section id="sns" className="container px-4 py-16">
+      <section id="sns" className="mx-auto container px-4 py-16">
         <div className="mx-auto max-w-4xl">
           <h2 className="text-3xl font-bold tracking-tighter mb-8 text-center">SNS</h2>
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
@@ -453,7 +453,7 @@ export default function Portfolio() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="container px-4 py-16">
+      <section id="contact" className="mx-auto container px-4 py-16">
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="text-3xl font-bold tracking-tighter mb-8">Contact</h2>
           <Card>
@@ -478,7 +478,7 @@ export default function Portfolio() {
 
       {/* Footer */}
       <footer className="border-t py-6 md:py-0">
-        <div className="container flex flex-col items-center justify-between gap-4 md:h-24 md:flex-row">
+        <div className="mx-auto container flex flex-col items-center justify-between gap-4 md:h-24 md:flex-row">
           <div className="flex flex-col items-center gap-4 px-8 md:flex-row md:gap-2 md:px-0">
             <Code className="h-6 w-6" />
             <p className="text-center text-sm leading-loose text-muted-foreground md:text-left">
