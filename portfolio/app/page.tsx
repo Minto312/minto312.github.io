@@ -32,25 +32,25 @@ export default function Portfolio() {
           </div>
           <div className="flex flex-1 items-center justify-between space-x-2 md:justify-end">
             <nav className="flex items-center space-x-6 text-sm font-medium">
-              <a href="#about" className="transition-colors hover:text-foreground/80">
+              <a href="#about" className="hidden md:block transition-colors hover:text-foreground/80">
                 About
               </a>
-              <a href="#skills" className="transition-colors hover:text-foreground/80">
+              <a href="#skills" className="hidden md:block transition-colors hover:text-foreground/80">
                 Skills
               </a>
-              <a href="#projects" className="transition-colors hover:text-foreground/80">
+              <a href="#projects" className="hidden md:block transition-colors hover:text-foreground/80">
                 Projects
               </a>
-              <a href="#experience" className="transition-colors hover:text-foreground/80">
+              <a href="#experience" className="hidden md:block transition-colors hover:text-foreground/80">
                 Experience
               </a>
-              <a href="#awards" className="transition-colors hover:text-foreground/80">
+              <a href="#awards" className="hidden md:block transition-colors hover:text-foreground/80">
                 Awards
               </a>
-              <a href="#certifications" className="transition-colors hover:text-foreground/80">
+              <a href="#certifications" className="hidden md:block transition-colors hover:text-foreground/80">
                 Certifications
               </a>
-              <a href="#sns" className="transition-colors hover:text-foreground/80">
+              <a href="#sns" className="hidden md:block transition-colors hover:text-foreground/80">
                 SNS
               </a>
             </nav>
