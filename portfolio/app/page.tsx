@@ -44,11 +44,14 @@ export default function Portfolio() {
               <a href="#experience" className="transition-colors hover:text-foreground/80">
                 Experience
               </a>
-              <a href="#sns" className="transition-colors hover:text-foreground/80">
-                SNS
-              </a>
               <a href="#awards" className="transition-colors hover:text-foreground/80">
                 Awards
+              </a>
+              <a href="#certifications" className="transition-colors hover:text-foreground/80">
+                Certifications
+              </a>
+              <a href="#sns" className="transition-colors hover:text-foreground/80">
+                SNS
               </a>
             </nav>
           </div>
