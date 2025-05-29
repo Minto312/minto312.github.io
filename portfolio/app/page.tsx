@@ -47,6 +47,9 @@ export default function Portfolio() {
               <a href="#sns" className="transition-colors hover:text-foreground/80">
                 SNS
               </a>
+              <a href="#awards" className="transition-colors hover:text-foreground/80">
+                Awards
+              </a>
             </nav>
           </div>
         </div>
@@ -238,13 +241,50 @@ export default function Portfolio() {
         </div>
       </section>
 
+            {/* Awards Section */}
+      <section id="awards" className="mx-auto container px-4 py-16 bg-muted/50">
+        <div className="mx-auto max-w-4xl">
+          <h2 className="text-3xl font-bold tracking-tighter mb-8 text-center">Awards</h2>
+          <ul className="space-y-4">
+            <li className="flex items-start gap-4 bg-white dark:bg-slate-800 rounded-lg shadow p-4">
+              <span className="mt-1">
+                {/* Medalアイコン */}
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-yellow-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c1.657 0 3-1.343 3-3S13.657 2 12 2 9 3.343 9 5s1.343 3 3 3zm0 0v13m0 0l-3-3m3 3l3-3" /></svg>
+              </span>
+              <div>
+                <div className="flex flex-col md:flex-row md:items-center md:gap-4">
+                  <span className="font-semibold text-lg">第35回 全国高等学校情報処理競技大会　個人 優勝</span>
+                  <span className="text-sm text-muted-foreground md:ml-2">2023年7月</span>
+                </div>
+                <div className="text-sm text-muted-foreground">主催: 全国商業高等学校協会</div>
+                <div className="text-sm">個人の部で優勝し，文部科学省より賞状をいただきました．</div>
+              </div>
+            </li>
+            <li className="flex items-start gap-4 bg-white dark:bg-slate-800 rounded-lg shadow p-4">
+              <span className="mt-1">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-yellow-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c1.657 0 3-1.343 3-3S13.657 2 12 2 9 3.343 9 5s1.343 3 3 3zm0 0v13m0 0l-3-3m3 3l3-3" /></svg>
+              </span>
+              <div>
+                <div className="flex flex-col md:flex-row md:items-center md:gap-4">
+                  <span className="font-semibold text-lg">第20回 情報危機管理コンテスト　文部科学大臣賞</span>
+                  <span className="text-sm text-muted-foreground md:ml-2">2025年5月</span>
+                </div>
+                <div className="text-sm text-muted-foreground"></div>
+                <div className="text-sm">it-sawayakaとして文部科学大臣賞をいただきました．</div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+
       {/* SNS Section */}
       <section id="sns" className="mx-auto container px-4 py-16">
         <div className="mx-auto max-w-4xl">
           <h2 className="text-3xl font-bold tracking-tighter mb-8 text-center">SNS</h2>
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
 
-          <a href="https://github.com/Minto312" target="_blank" rel="noopener noreferrer">
+            <a href="https://github.com/Minto312" target="_blank" rel="noopener noreferrer">
               <Card className="overflow-hidden hover:shadow-lg transition-all">
                 <CardContent className="p-0">
                   <div className="bg-gradient-to-r from-gray-700 to-black p-6 flex flex-col items-center">
