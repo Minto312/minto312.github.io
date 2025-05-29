@@ -241,7 +241,7 @@ export default function Portfolio() {
         </div>
       </section>
 
-            {/* Awards Section */}
+      {/* Awards Section */}
       <section id="awards" className="mx-auto container px-4 py-16 bg-muted/50">
         <div className="mx-auto max-w-4xl">
           <h2 className="text-3xl font-bold tracking-tighter mb-8 text-center">Awards</h2>
@@ -277,6 +277,48 @@ export default function Portfolio() {
         </div>
       </section>
 
+      {/* Certifications Section */}
+      <section id="certifications" className="mx-auto container px-4 py-16">
+        <div className="mx-auto max-w-4xl">
+          <h2 className="text-3xl font-bold tracking-tighter mb-8 text-center">Certifications</h2>
+          <ul className="space-y-4">
+            <li className="flex items-start gap-4 bg-white dark:bg-slate-800 rounded-lg shadow p-4">
+              <span className="mt-1">
+                {/* 資格アイコン */}
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6l4 2" /></svg>
+              </span>
+              <div>
+                <span className="font-semibold text-lg">
+                  情報処理安全確保支援士
+                </span>
+                <div className="text-sm text-muted-foreground">2024年10月</div>
+              </div>
+            </li>
+            <li className="flex items-start gap-4 bg-white dark:bg-slate-800 rounded-lg shadow p-4">
+              <span className="mt-1">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6l4 2" /></svg>
+              </span>
+              <div>
+                <span className="font-semibold text-lg">
+                  応用情報技術者
+                </span>
+                <div className="text-sm text-muted-foreground">2023年4月</div>
+              </div>
+            </li>
+            <li className="flex items-start gap-4 bg-white dark:bg-slate-800 rounded-lg shadow p-4">
+              <span className="mt-1">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6l4 2" /></svg>
+              </span>
+              <div>
+                <span className="font-semibold text-lg">
+                  日商簿記検定2級
+                </span>
+                <div className="text-sm text-muted-foreground">2023年8月</div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
 
       {/* SNS Section */}
       <section id="sns" className="mx-auto container px-4 py-16">
