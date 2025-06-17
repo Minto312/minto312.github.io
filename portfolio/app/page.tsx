@@ -21,6 +21,7 @@ import {
 export default function Portfolio() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-900 dark:to-slate-800">
+      <h1 className="sr-only">高島湊斗のポートフォリオサイト</h1>
       {/* Header */}
       <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <div className="mx-auto container flex h-14 items-center">
@@ -69,7 +70,7 @@ export default function Portfolio() {
                   <h3 className="text-xl font-semibold">プロフィール</h3>
                   <div className="flex items-center gap-4 mb-4">
                     <div className="h-24 w-24 rounded-full overflow-hidden">
-                      <img src="/icon.png" alt="プロフィール画像" className="w-full h-full object-cover" />
+                      <img src="/icon.png" alt="高島湊斗のプロフィール画像" className="w-full h-full object-cover" />
                     </div>
                     <div>
                       <h1 className="text-2xl font-bold">高島 湊斗</h1>
@@ -329,7 +330,7 @@ export default function Portfolio() {
           <h2 className="text-3xl font-bold tracking-tighter mb-8 text-center">SNS</h2>
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
 
-            <a href="https://github.com/Minto312" target="_blank" rel="noopener noreferrer">
+            <a href="https://github.com/Minto312" target="_blank" rel="noopener noreferrer me">
               <Card className="overflow-hidden hover:shadow-lg transition-all">
                 <CardContent className="p-0">
                   <div className="bg-gradient-to-r from-gray-700 to-black p-6 flex flex-col items-center">
@@ -345,7 +346,7 @@ export default function Portfolio() {
               </Card>
             </a>
 
-            <a href="https://x.com/Minto3219_" target="_blank" rel="noopener noreferrer">
+            <a href="https://x.com/Minto3219_" target="_blank" rel="noopener noreferrer me">
               <Card className="overflow-hidden hover:shadow-lg transition-all">
                 <CardContent className="p-0">
                   <div className="bg-gradient-to-r from-blue-700 to-blue-900 p-6 flex flex-col items-center">
@@ -361,7 +362,7 @@ export default function Portfolio() {
               </Card>
             </a>
 
-            <a href="https://lapras.com/public/minto312" target="_blank" rel="noopener noreferrer">
+            <a href="https://lapras.com/public/minto312" target="_blank" rel="noopener noreferrer me">
               <Card className="overflow-hidden hover:shadow-lg transition-all">
                 <CardContent className="p-0">
                   <div className="bg-gradient-to-r from-teal-500 to-emerald-600 p-6 flex flex-col items-center">

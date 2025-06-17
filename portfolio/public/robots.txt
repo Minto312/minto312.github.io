@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://minto312.github.io/sitemap.xml
