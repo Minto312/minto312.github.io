@@ -72,7 +72,7 @@ const careers = [
   {
     title: '運営：シンギュラリティバトルクエスト運営',
     detail:
-      '未来キッズコンテンツ総合研究所 (2024年4 – 現在)｜高校生向けAI/ICT競技大会の運営｜',
+      '未来キッズコンテンツ総合研究所 (2024年4月 – 現在)｜高校生向けAI/ICT競技大会の運営｜',
     link: {
       href: 'https://singularitybattlequest.club/',
       label: '大会サイト',
