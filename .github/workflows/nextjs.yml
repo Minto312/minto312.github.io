@@ -34,15 +34,26 @@ jobs:
       - name: Detect package manager
         id: detect-package-manager
         run: |
-          if [ -f "${{ github.workspace }}/portfolio/yarn.lock" ]; then
-            echo "manager=yarn" >> $GITHUB_OUTPUT
-            echo "command=install" >> $GITHUB_OUTPUT
-            echo "runner=yarn" >> $GITHUB_OUTPUT
+          if [ -f "${GITHUB_WORKSPACE}/portfolio/yarn.lock" ]; then
+            echo "manager=yarn" >> "$GITHUB_OUTPUT"
+            echo "command=install" >> "$GITHUB_OUTPUT"
+            echo "runner=yarn" >> "$GITHUB_OUTPUT"
+            echo "cache=yarn" >> "$GITHUB_OUTPUT"
+            echo "cache-dependency-path=portfolio/yarn.lock" >> "$GITHUB_OUTPUT"
             exit 0
-          elif [ -f "${{ github.workspace }}/portfolio/package.json" ]; then
-            echo "manager=npm" >> $GITHUB_OUTPUT
-            echo "command=ci" >> $GITHUB_OUTPUT
-            echo "runner=npx --no-install" >> $GITHUB_OUTPUT
+          elif [ -f "${GITHUB_WORKSPACE}/portfolio/package-lock.json" ]; then
+            echo "manager=npm" >> "$GITHUB_OUTPUT"
+            echo "command=ci" >> "$GITHUB_OUTPUT"
+            echo "runner=npx --no-install" >> "$GITHUB_OUTPUT"
+            echo "cache=npm" >> "$GITHUB_OUTPUT"
+            echo "cache-dependency-path=portfolio/package-lock.json" >> "$GITHUB_OUTPUT"
+            exit 0
+          elif [ -f "${GITHUB_WORKSPACE}/portfolio/package.json" ]; then
+            echo "manager=npm" >> "$GITHUB_OUTPUT"
+            echo "command=install" >> "$GITHUB_OUTPUT"
+            echo "runner=npx --no-install" >> "$GITHUB_OUTPUT"
+            echo "cache=" >> "$GITHUB_OUTPUT"
+            echo "cache-dependency-path=" >> "$GITHUB_OUTPUT"
             exit 0
           else
             echo "Unable to determine package manager"
@@ -52,8 +63,8 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: "22"
-          cache: ${{ steps.detect-package-manager.outputs.manager }}
-          cache-dependency-path: portfolio/package-lock.json
+          cache: ${{ steps.detect-package-manager.outputs.cache }}
+          cache-dependency-path: ${{ steps.detect-package-manager.outputs.cache-dependency-path }}
       - name: Setup Pages
         uses: actions/configure-pages@v5
         with:
