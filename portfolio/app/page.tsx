@@ -162,11 +162,6 @@ export default function HomePage() {
         publisher: {
           '@id': `${siteUrl}#person`,
         },
-        potentialAction: {
-          '@type': 'SearchAction',
-          target: `${siteUrl}/?s={search_term_string}`,
-          'query-input': 'required name=search_term_string',
-        },
       },
     ],
   };
