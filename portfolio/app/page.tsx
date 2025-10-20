@@ -1,6 +1,8 @@
+'use client';
+
 import Image from 'next/image';
 import Script from 'next/script';
-import type { ReactNode } from 'react';
+import { useEffect, useMemo, useState, type ReactNode } from 'react';
 
 const siteUrl = 'https://portfolio.minto312.com';
 const socialLinks = [
@@ -82,16 +84,123 @@ const careers = [
   },
 ];
 
-const projects = [
+type Project = {
+  id: string;
+  title: string;
+  summary: string;
+  industry: string;
+  period: string;
+  employmentType: string;
+  teamScale: string;
+  techStack: string[];
+  responsibilities: string[];
+  activities: string[];
+  achievements: string[];
+};
+
+const projects: Project[] = [
   {
-    title: 'イベント受付システム (業務委託)',
-    description:
-      'Next.jsで作成したイベント受付システム (期間: 1か月)｜担当: PdM｜技術スタック: Next.js, TypeScript',
+    id: 'behavior-analytics-portfolio',
+    title: '行動分析AIポートフォリオサービス',
+    summary:
+      '教育｜2025年10月〜現在｜正社員｜全体6名／チーム1名｜PdM・フルスタック (要件定義〜保守)',
+    industry: '教育',
+    period: '2025年10月〜現在',
+    employmentType: '正社員',
+    teamScale: '全体6名／チーム1名',
+    techStack: ['TypeScript', 'Next.js', 'Go', 'PostgreSQL', 'Ubuntu', 'Slack'],
+    responsibilities: ['要件定義', '設計', '実装', 'テスト', '保守'],
+    activities: [
+      '要件定義と運用設計を主導',
+      '社外向け技術資料の作成',
+      'Next.js (TypeScript) と Go を用いたモダンフルスタック開発',
+      'LLMのチューニングおよび安全性検証',
+    ],
+    achievements: [
+      '構想段階のプロダクトを要件定義し、半月でPoCをローンチ',
+      'LLMを活用した差別化機能の検証を完遂',
+      '社外資料作成を通じたコンサルティング知見の獲得',
+    ],
   },
   {
-    title: '物件情報サイト（業務委託）',
-    description:
-      '物件閲覧、検索、お問い合わせ機能を備えた物件情報サイト (期間: 4か月)｜担当: PdM｜技術スタック: Next.js, Django',
+    id: 'plateau2minecraft-support',
+    title: 'plateau2minecraft支援',
+    summary:
+      '教育｜2024年10月｜業務委託｜全体1名／チーム1名｜PdM・フルスタック (要件定義〜テスト)',
+    industry: '教育',
+    period: '2024年10月',
+    employmentType: '業務委託',
+    teamScale: '全体1名／チーム1名',
+    techStack: ['Go', 'Slack'],
+    responsibilities: ['要件定義', '設計', '実装', 'テスト'],
+    activities: [
+      'OSSツール「plateau2minecraft」利用時のエラー解析と改善策立案',
+      '緯度経度とMinecraft座標を相互変換する支援ツールを開発',
+    ],
+    achievements: [
+      '要件定義から実装まで迅速に遂行し顧客価値を最大化',
+      'スコープの絞り込みにより短期間で確実な施策を実現',
+    ],
+  },
+  {
+    id: 'real-estate-search',
+    title: '物件検索サイト',
+    summary:
+      '不動産｜2024年10月〜2025年9月｜業務委託｜全体3名／チーム2名｜PM・フルスタック (要件定義〜テスト)',
+    industry: '不動産',
+    period: '2024年10月〜2025年9月',
+    employmentType: '業務委託',
+    teamScale: '全体3名／チーム2名',
+    techStack: ['TypeScript', 'Next.js', 'Python', 'Django', 'PostgreSQL', 'AWS ECS', 'Discord'],
+    responsibilities: ['要件定義', '設計', '実装', 'テスト'],
+    activities: [
+      'PMとしてチームマネジメントを担当',
+      'Next.jsを用いたフロントエンドおよびDjangoによるバックエンド開発',
+    ],
+    achievements: [
+      'ヒアリングから実装まで一貫して対応しローンチを達成',
+      '保守性・セキュリティを両立した高品質な設計を実現',
+    ],
+  },
+  {
+    id: 'codenames-graphai',
+    title: 'Codenames with GraphAI Agents',
+    summary:
+      '教育・エンタメ｜2025年4月〜2025年7月｜インターン｜全体5名／チーム2名｜エンジニア (設計〜テスト)',
+    industry: '教育・エンタメ',
+    period: '2025年4月〜2025年7月',
+    employmentType: 'インターン',
+    teamScale: '全体5名／チーム2名',
+    techStack: ['Python', 'Flask', 'PostgreSQL', 'AWS EC2', 'Slack', 'Trello'],
+    responsibilities: ['設計', '実装', 'テスト'],
+    activities: [
+      'ボードゲーム「Codenames」のWeb再現を担当',
+      'GraphAI (Grapys) への機能提案と実装計画策定',
+    ],
+    achievements: [
+      '認可を得てUI/UXを再現したWeb実装を完遂',
+      'OSS開発団体と連携し改善提案と実装に着手',
+    ],
+  },
+  {
+    id: 'b2b-event-check-in',
+    title: 'BtoBイベント受付システム',
+    summary:
+      '営業｜2025年10月｜業務委託｜全体2名／チーム1名｜PdM・フルスタック (要件定義〜テスト)',
+    industry: '営業',
+    period: '2025年10月',
+    employmentType: '業務委託',
+    teamScale: '全体2名／チーム1名',
+    techStack: ['TypeScript', 'Next.js', 'PostgreSQL', 'Windows', 'Discord'],
+    responsibilities: ['要件定義', '設計', '実装', 'テスト'],
+    activities: [
+      'プロダクトマネジメントおよびチームマネジメントを兼務',
+      'Next.jsを活用したフロントエンド・バックエンド実装を一気通貫で担当',
+    ],
+    achievements: [
+      '適切なスコープ設計により工数を約半減',
+      '顧客の厳しいスケジュールに柔軟に対応し貢献',
+    ],
   },
 ];
 
@@ -120,6 +229,12 @@ const certifications = [
 ];
 
 export default function HomePage() {
+  const [activeProjectId, setActiveProjectId] = useState<string | null>(null);
+  const activeProject = useMemo(
+    () => projects.find((project) => project.id === activeProjectId) ?? null,
+    [activeProjectId],
+  );
+
   const structuredData = {
     '@context': 'https://schema.org',
     '@graph': [
@@ -263,11 +378,21 @@ export default function HomePage() {
 
       <Section title="プロジェクト">
         <ul className="m-0 list-none space-y-4 p-0">
-          {projects.map(({ title, description }) => (
-            <li key={title} className="text-base leading-relaxed">
-              <strong className="text-slate-900">{title}</strong>
+          {projects.map((project) => (
+            <li key={project.id} className="text-base leading-relaxed">
+              <strong className="text-slate-900">{project.title}</strong>
               <br />
-              <small className="text-sm text-slate-600">{description}</small>
+              <small className="text-sm text-slate-600">{project.summary}</small>
+              <div className="mt-2">
+                <button
+                  type="button"
+                  onClick={() => setActiveProjectId(project.id)}
+                  className="inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white px-3 py-1 text-sm font-medium text-slate-700 transition hover:border-slate-400 hover:bg-slate-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-500"
+                >
+                  詳細を見る
+                  <span aria-hidden="true">→</span>
+                </button>
+              </div>
             </li>
           ))}
         </ul>
@@ -294,6 +419,9 @@ export default function HomePage() {
           ))}
         </ul>
       </Section>
+      {activeProject ? (
+        <ProjectDetailModal project={activeProject} onClose={() => setActiveProjectId(null)} />
+      ) : null}
     </main>
   );
 }
@@ -306,5 +434,111 @@ function Section({ title, children }: { title: string; children: ReactNode }) {
       </h2>
       {children}
     </section>
+  );
+}
+
+function ProjectDetailModal({ project, onClose }: { project: Project; onClose: () => void }) {
+  useEffect(() => {
+    function handleKeyDown(event: KeyboardEvent) {
+      if (event.key === 'Escape') {
+        onClose();
+      }
+    }
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [onClose]);
+
+  return (
+    <div
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby={`${project.id}-title`}
+      className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/60 px-4 py-6"
+      onClick={onClose}
+    >
+      <div
+        className="max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-2xl bg-white p-6 shadow-2xl"
+        onClick={(event) => event.stopPropagation()}
+      >
+        <div className="flex items-start justify-between gap-4">
+          <div>
+            <h3 id={`${project.id}-title`} className="text-xl font-semibold text-slate-900">
+              {project.title}
+            </h3>
+            <p className="mt-1 text-sm text-slate-600">{project.summary}</p>
+          </div>
+          <button
+            type="button"
+            onClick={onClose}
+            aria-label="詳細を閉じる"
+            className="rounded-full border border-transparent bg-slate-100 p-2 text-slate-500 transition hover:bg-slate-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-500"
+          >
+            <span aria-hidden="true">✕</span>
+          </button>
+        </div>
+
+        <dl className="mt-4 grid grid-cols-1 gap-4 text-sm text-slate-700 sm:grid-cols-2">
+          <div>
+            <dt className="font-semibold text-slate-900">業種</dt>
+            <dd className="mt-1">{project.industry}</dd>
+          </div>
+          <div>
+            <dt className="font-semibold text-slate-900">期間</dt>
+            <dd className="mt-1">{project.period}</dd>
+          </div>
+          <div>
+            <dt className="font-semibold text-slate-900">雇用形態</dt>
+            <dd className="mt-1">{project.employmentType}</dd>
+          </div>
+          <div>
+            <dt className="font-semibold text-slate-900">チーム規模</dt>
+            <dd className="mt-1">{project.teamScale}</dd>
+          </div>
+          <div className="sm:col-span-2">
+            <dt className="font-semibold text-slate-900">使用技術</dt>
+            <dd className="mt-1 flex flex-wrap gap-2">
+              {project.techStack.map((tech) => (
+                <span
+                  key={tech}
+                  className="inline-flex items-center rounded-full bg-slate-100 px-2.5 py-1 text-xs font-medium text-slate-700"
+                >
+                  {tech}
+                </span>
+              ))}
+            </dd>
+          </div>
+          <div>
+            <dt className="font-semibold text-slate-900">担当領域</dt>
+            <dd className="mt-1 space-y-1">
+              {project.responsibilities.map((responsibility) => (
+                <p key={responsibility}>{responsibility}</p>
+              ))}
+            </dd>
+          </div>
+        </dl>
+
+        <div className="mt-6 space-y-4 text-sm text-slate-700">
+          <section>
+            <h4 className="text-base font-semibold text-slate-900">主な取り組み</h4>
+            <ul className="mt-2 list-disc space-y-1 pl-5">
+              {project.activities.map((activity) => (
+                <li key={activity}>{activity}</li>
+              ))}
+            </ul>
+          </section>
+          <section>
+            <h4 className="text-base font-semibold text-slate-900">実績</h4>
+            <ul className="mt-2 list-disc space-y-1 pl-5">
+              {project.achievements.map((achievement) => (
+                <li key={achievement}>{achievement}</li>
+              ))}
+            </ul>
+          </section>
+        </div>
+      </div>
+    </div>
   );
 }
