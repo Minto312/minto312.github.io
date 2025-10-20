@@ -5,7 +5,7 @@ import './globals.css';
 const siteUrl = 'https://portfolio.minto312.com';
 const siteTitle = '高島 湊斗 – ポートフォリオ';
 const siteDescription =
-  '高島 湊斗 (Takashima Minato) のポートフォリオサイトです。PythonとTypeScriptを中心にフルスタック開発を行っています。';
+  '高島 湊斗 (Takashima Minato) のポートフォリオサイトです。TypeScriptとGo, Pythonを中心にフルスタックからインフラまで幅広く開発を行っています。';
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),

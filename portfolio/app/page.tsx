@@ -5,6 +5,54 @@ import Script from 'next/script';
 import { useEffect, useMemo, useState, type ReactNode } from 'react';
 
 const siteUrl = 'https://portfolio.minto312.com';
+const createDate = (year: number, month: number, day = 1) => new Date(year, month - 1, day);
+const EXPERIENCE_START_DATE = createDate(2023, 10);
+
+type Duration = {
+  years: number;
+  months: number;
+};
+
+const calculateDuration = (startDate: Date, endDate: Date): Duration => {
+  if (endDate < startDate) {
+    return { years: 0, months: 0 };
+  }
+
+  let years = endDate.getFullYear() - startDate.getFullYear();
+  let months = endDate.getMonth() - startDate.getMonth();
+
+  if (endDate.getDate() < startDate.getDate()) {
+    months -= 1;
+  }
+
+  if (months < 0) {
+    years -= 1;
+    months += 12;
+  }
+
+  return {
+    years: Math.max(0, years),
+    months: Math.max(0, months),
+  };
+};
+
+const formatDurationLabel = ({ years, months }: Duration) => {
+  const parts: string[] = [];
+
+  if (years > 0) {
+    parts.push(`${years}年`);
+  }
+
+  if (months > 0) {
+    parts.push(`${months}ヶ月`);
+  }
+
+  if (parts.length === 0) {
+    return '1ヶ月未満';
+  }
+
+  return parts.join('');
+};
 const socialLinks = [
   {
     href: 'https://github.com/Minto312',
@@ -58,18 +106,23 @@ const awards = [
   },
 ];
 
-const skills = [
-  { name: 'JavaScript/TypeScript', experience: '経験2年' },
-  { name: 'Python', experience: '経験2年' },
-  { name: 'React', experience: '経験2年' },
-  { name: 'Next.js', experience: '経験2年' },
-  { name: 'Django', experience: '経験2年' },
-  { name: 'Tailwind CSS', experience: '経験2年' },
-  { name: 'Git', experience: '経験2年' },
-  { name: 'Docker', experience: '経験2年' },
-  { name: 'AWS', experience: '経験2年' },
-  { name: 'GCP', experience: '経験2年' },
-  { name: 'PostgreSQL', experience: '経験2年' },
+type SkillDefinition = {
+  name: string;
+  startedAt: Date;
+};
+
+const skillDefinitions: SkillDefinition[] = [
+  { name: 'JavaScript/TypeScript', startedAt: createDate(2023, 10) },
+  { name: 'Python', startedAt: createDate(2023, 10) },
+  { name: 'React', startedAt: createDate(2023, 10) },
+  { name: 'Next.js', startedAt: createDate(2023, 10) },
+  { name: 'Django', startedAt: createDate(2023, 10) },
+  { name: 'Tailwind CSS', startedAt: createDate(2023, 10) },
+  { name: 'Git', startedAt: createDate(2023, 10) },
+  { name: 'Docker', startedAt: createDate(2023, 10) },
+  { name: 'AWS', startedAt: createDate(2023, 10) },
+  { name: 'GCP', startedAt: createDate(2023, 10) },
+  { name: 'PostgreSQL', startedAt: createDate(2023, 10) },
 ];
 
 const careers = [
@@ -234,6 +287,19 @@ export default function HomePage() {
     () => projects.find((project) => project.id === activeProjectId) ?? null,
     [activeProjectId],
   );
+  const now = useMemo(() => new Date(), []);
+  const experienceDuration = useMemo(
+    () => formatDurationLabel(calculateDuration(EXPERIENCE_START_DATE, now)),
+    [now],
+  );
+  const skills = useMemo(
+    () =>
+      skillDefinitions.map(({ name, startedAt }) => ({
+        name,
+        experience: `経験${formatDurationLabel(calculateDuration(startedAt, now))}`,
+      })),
+    [now],
+  );
 
   const structuredData = {
     '@context': 'https://schema.org',
@@ -245,7 +311,7 @@ export default function HomePage() {
         alternateName: 'Takashima Minato',
         url: siteUrl,
         description:
-          '高島 湊斗 (Takashima Minato) はPythonとTypeScriptを中心にフルスタック開発を手がけるソフトウェアエンジニアです。',
+          '高島 湊斗 (Takashima Minato) はTypeScriptとGo, Pythonを中心にフロントエンドからインフラまでを手がけるソフトウェアエンジニアです。',
         jobTitle: 'フルスタックエンジニア',
         address: {
           '@type': 'PostalAddress',
@@ -272,7 +338,7 @@ export default function HomePage() {
         url: siteUrl,
         name: '高島 湊斗 – ポートフォリオ',
         description:
-          '高島 湊斗 (Takashima Minato) のポートフォリオサイト。PythonやTypeScriptを活用したフルスタック開発実績や受賞歴、資格、経歴を紹介しています。',
+          '高島 湊斗 (Takashima Minato) のポートフォリオサイト。TypeScriptやGo, Pythonを活用したフルスタックからインフラ領域の開発実績や受賞歴、資格、経歴を紹介しています。',
         inLanguage: 'ja',
         publisher: {
           '@id': `${siteUrl}#person`,
@@ -305,9 +371,9 @@ export default function HomePage() {
             <h1 className="text-3xl font-semibold text-slate-900">
               高島 湊斗 <small className="text-base font-normal text-slate-500">(Takashima Minato)</small>
             </h1>
-            <p className="mt-2">静岡, 日本 | 実務経験年数: 2年</p>
+            <p className="mt-2">静岡, 日本 | 実務経験年数: {experienceDuration}</p>
             <p className="mt-4">
-              Webアプリケーションをメインに開発するフルスタックエンジニアです。PythonとTypeScriptを主軸に、バックエンドからフロントエンドまで幅広く携わっています。情報処理安全確保支援士の資格を持ち、低レイヤー技術やコンパイラ開発にも興味があります。
+              Webアプリケーションをメインに開発するフルスタックエンジニアです。TypeScriptとGo, Pythonを主軸に、フロントエンドからインフラまで幅広く携わっています。情報処理安全確保支援士の資格を持ち、低レイヤー技術やコンパイラ開発にも興味があります。
             </p>
             <div className="mt-6">
               <strong className="block text-base font-semibold text-slate-900">SNSリンク</strong>
