@@ -1,6 +1,8 @@
 import Image from 'next/image';
+import Script from 'next/script';
 import type { ReactNode } from 'react';
 
+const siteUrl = 'https://portfolio.minto312.com';
 const socialLinks = [
   {
     href: 'https://github.com/Minto312',
@@ -93,6 +95,24 @@ const projects = [
   },
 ];
 
+const services = [
+  {
+    title: 'Webアプリケーション開発',
+    description:
+      '要件定義からUI設計、フロントエンド・バックエンド実装、運用保守まで一気通貫で対応します。Next.jsやReact、Djangoを活用し、業務課題に合わせた堅牢なWebアプリケーションを構築します。',
+  },
+  {
+    title: 'AI/データ活用プロトタイピング',
+    description:
+      '機械学習モデルを用いたPoC開発や、生成AIを活用した業務効率化プロダクトの試作を得意としています。Pythonやクラウドサービスを組み合わせ、短期間で価値検証を行います。',
+  },
+  {
+    title: '技術顧問・技術選定サポート',
+    description:
+      'スタートアップや新規事業に対し、技術的な意思決定を支援します。チームの開発体制構築、セキュリティレビュー、クラウドアーキテクチャ設計など、実務経験に基づくアドバイスを提供します。',
+  },
+];
+
 const certifications = [
   '情報処理安全確保支援士 — 2024年10月取得',
   '応用情報技術者 — 2023年4月取得',
@@ -100,8 +120,65 @@ const certifications = [
 ];
 
 export default function HomePage() {
+  const structuredData = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'Person',
+        '@id': `${siteUrl}#person`,
+        name: '高島 湊斗',
+        alternateName: 'Takashima Minato',
+        url: siteUrl,
+        description:
+          '高島 湊斗 (Takashima Minato) はPythonとTypeScriptを中心にフルスタック開発を手がけるソフトウェアエンジニアです。',
+        jobTitle: 'フルスタックエンジニア',
+        address: {
+          '@type': 'PostalAddress',
+          addressCountry: 'JP',
+          addressRegion: 'Shizuoka',
+        },
+        sameAs: socialLinks.map(({ href }) => href),
+        knowsAbout: skills.map(({ name }) => name),
+        award: awards.map(({ title }) => title),
+        makesOffer: services.map(({ title, description }) => ({
+          '@type': 'Offer',
+          name: title,
+          description,
+          availability: 'https://schema.org/InStock',
+          areaServed: {
+            '@type': 'Country',
+            name: 'Japan',
+          },
+        })),
+      },
+      {
+        '@type': 'WebSite',
+        '@id': `${siteUrl}#website`,
+        url: siteUrl,
+        name: '高島 湊斗 – ポートフォリオ',
+        description:
+          '高島 湊斗 (Takashima Minato) のポートフォリオサイト。PythonやTypeScriptを活用したフルスタック開発実績や受賞歴、資格、経歴を紹介しています。',
+        inLanguage: 'ja',
+        publisher: {
+          '@id': `${siteUrl}#person`,
+        },
+        potentialAction: {
+          '@type': 'SearchAction',
+          target: `${siteUrl}/?s={search_term_string}`,
+          'query-input': 'required name=search_term_string',
+        },
+      },
+    ],
+  };
+
   return (
     <main className="mx-auto max-w-[800px] px-4 py-8 sm:px-6">
+      <Script
+        id="structured-data"
+        type="application/ld+json"
+        strategy="beforeInteractive"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
       <header className="mb-8">
         <div className="flex flex-col gap-6 sm:flex-row sm:items-start">
           <div className="shrink-0">
@@ -192,6 +269,18 @@ export default function HomePage() {
       <Section title="プロジェクト">
         <ul className="m-0 list-none space-y-4 p-0">
           {projects.map(({ title, description }) => (
+            <li key={title} className="text-base leading-relaxed">
+              <strong className="text-slate-900">{title}</strong>
+              <br />
+              <small className="text-sm text-slate-600">{description}</small>
+            </li>
+          ))}
+        </ul>
+      </Section>
+
+      <Section title="提供できるサービス">
+        <ul className="m-0 list-none space-y-4 p-0">
+          {services.map(({ title, description }) => (
             <li key={title} className="text-base leading-relaxed">
               <strong className="text-slate-900">{title}</strong>
               <br />
