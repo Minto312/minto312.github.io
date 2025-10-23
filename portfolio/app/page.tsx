@@ -6,7 +6,7 @@ import { useEffect, useMemo, useState, type ReactNode } from 'react';
 
 const siteUrl = 'https://portfolio.minto312.com';
 const createDate = (year: number, month: number, day = 1) => new Date(year, month - 1, day);
-const EXPERIENCE_START_DATE = createDate(2022, 10);
+const EXPERIENCE_START_DATE = createDate(2023, 10);
 
 type Duration = {
   years: number;
@@ -112,19 +112,19 @@ type SkillDefinition = {
 };
 
 const skillDefinitions: SkillDefinition[] = [
-  { name: 'TypeScript', startedAt: createDate(2022, 10) },
-  { name: 'Go', startedAt: createDate(2022, 10) },
-  { name: 'Python', startedAt: createDate(2022, 10) },
+  { name: 'TypeScript', startedAt: createDate(2023, 10) },
+  { name: 'Go', startedAt: createDate(2023, 10) },
+  { name: 'Python', startedAt: createDate(2023, 10) },
   { name: 'Rust', startedAt: createDate(2023, 10) },
-  { name: 'Terraform', startedAt: createDate(2022, 10) },
-  { name: 'Next.js', startedAt: createDate(2022, 10) },
-  { name: 'Django', startedAt: createDate(2022, 10) },
-  { name: 'PostgreSQL', startedAt: createDate(2022, 10) },
+  { name: 'Terraform', startedAt: createDate(2023, 10) },
+  { name: 'Next.js', startedAt: createDate(2023, 10) },
+  { name: 'Django', startedAt: createDate(2023, 10) },
+  { name: 'PostgreSQL', startedAt: createDate(2023, 10) },
   { name: 'DynamoDB', startedAt: createDate(2024, 10) },
-  { name: 'AWS', startedAt: createDate(2022, 10) },
-  { name: 'GCP', startedAt: createDate(2022, 10) },
-  { name: 'Ubuntu', startedAt: createDate(2022, 10) },
-  { name: 'Docker', startedAt: createDate(2022, 10) },
+  { name: 'AWS', startedAt: createDate(2023, 10) },
+  { name: 'GCP', startedAt: createDate(2023, 10) },
+  { name: 'Ubuntu', startedAt: createDate(2023, 10) },
+  { name: 'Docker', startedAt: createDate(2023, 10) },
   { name: 'CI/CD', startedAt: createDate(2024, 10) },
   { name: 'Kubernetes', startedAt: createDate(2024, 10) },
   { name: '情報処理安全確保支援士', startedAt: createDate(2024, 10) },
