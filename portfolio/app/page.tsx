@@ -6,7 +6,7 @@ import { useEffect, useMemo, useState, type ReactNode } from 'react';
 
 const siteUrl = 'https://portfolio.minto312.com';
 const createDate = (year: number, month: number, day = 1) => new Date(year, month - 1, day);
-const EXPERIENCE_START_DATE = createDate(2023, 10);
+const EXPERIENCE_START_DATE = createDate(2022, 10);
 
 type Duration = {
   years: number;
@@ -112,17 +112,22 @@ type SkillDefinition = {
 };
 
 const skillDefinitions: SkillDefinition[] = [
-  { name: 'JavaScript/TypeScript', startedAt: createDate(2023, 10) },
-  { name: 'Python', startedAt: createDate(2023, 10) },
-  { name: 'React', startedAt: createDate(2023, 10) },
-  { name: 'Next.js', startedAt: createDate(2023, 10) },
-  { name: 'Django', startedAt: createDate(2023, 10) },
-  { name: 'Tailwind CSS', startedAt: createDate(2023, 10) },
-  { name: 'Git', startedAt: createDate(2023, 10) },
-  { name: 'Docker', startedAt: createDate(2023, 10) },
-  { name: 'AWS', startedAt: createDate(2023, 10) },
-  { name: 'GCP', startedAt: createDate(2023, 10) },
-  { name: 'PostgreSQL', startedAt: createDate(2023, 10) },
+  { name: 'TypeScript', startedAt: createDate(2022, 10) },
+  { name: 'Go', startedAt: createDate(2022, 10) },
+  { name: 'Python', startedAt: createDate(2022, 10) },
+  { name: 'Rust', startedAt: createDate(2023, 10) },
+  { name: 'Terraform', startedAt: createDate(2022, 10) },
+  { name: 'Next.js', startedAt: createDate(2022, 10) },
+  { name: 'Django', startedAt: createDate(2022, 10) },
+  { name: 'PostgreSQL', startedAt: createDate(2022, 10) },
+  { name: 'DynamoDB', startedAt: createDate(2024, 10) },
+  { name: 'AWS', startedAt: createDate(2022, 10) },
+  { name: 'GCP', startedAt: createDate(2022, 10) },
+  { name: 'Ubuntu', startedAt: createDate(2022, 10) },
+  { name: 'Docker', startedAt: createDate(2022, 10) },
+  { name: 'CI/CD', startedAt: createDate(2024, 10) },
+  { name: 'Kubernetes', startedAt: createDate(2024, 10) },
+  { name: '情報処理安全確保支援士', startedAt: createDate(2024, 10) },
 ];
 
 const careers = [
@@ -156,43 +161,49 @@ const projects: Project[] = [
     id: 'behavior-analytics-portfolio',
     title: '行動分析AIポートフォリオサービス',
     summary:
-      '教育｜2025年10月〜現在｜正社員｜全体6名／チーム1名｜PdM・フルスタック (要件定義〜保守)',
+      '教育｜2025年10月〜現在｜正社員｜全体6名／チーム1名｜PdM・フルスタック (要件定義〜運用)',
     industry: '教育',
     period: '2025年10月〜現在',
     employmentType: '正社員',
     teamScale: '全体6名／チーム1名',
     techStack: ['TypeScript', 'Next.js', 'Go', 'PostgreSQL', 'Ubuntu', 'Slack'],
-    responsibilities: ['要件定義', '設計', '実装', 'テスト', '保守'],
+    responsibilities: [
+      '顧客ヒアリングと要件定義',
+      '運用設計と社外向け技術資料の作成',
+      'Next.js＋Goによるモダンフルスタック開発',
+      'LLMチューニングと品質・安全性検証',
+    ],
     activities: [
-      '要件定義と運用設計を主導',
-      '社外向け技術資料の作成',
-      'Next.js (TypeScript) と Go を用いたモダンフルスタック開発',
-      'LLMのチューニングおよび安全性検証',
+      '構想段階のプロダクトに対して要件定義・仕様策定を実行',
+      'OpenTelemetryによる観測基盤を整備しオブザーバビリティを確立',
+      'LLMのファインチューニングとペルソナ設定を継続的に検証',
+      '社外向け資料作成を通じコンサルティング知見を蓄積',
     ],
     achievements: [
-      '構想段階のプロダクトを要件定義し、半月でPoCをローンチ',
-      'LLMを活用した差別化機能の検証を完遂',
-      '社外資料作成を通じたコンサルティング知見の獲得',
+      '実装開始から半月でPoCをローンチし意思決定を加速',
+      'LLM利用の安全性要件を整備し顧客信頼性を向上',
+      '資料整備を通じ社外折衝と知見共有の仕組みを構築',
     ],
   },
   {
     id: 'plateau2minecraft-support',
     title: 'plateau2minecraft支援',
     summary:
-      '教育｜2024年10月｜業務委託｜全体1名／チーム1名｜PdM・フルスタック (要件定義〜テスト)',
+      '教育｜2025年10月｜業務委託｜全体1名／チーム1名｜Goエンジニア (要件定義〜実装)',
     industry: '教育',
-    period: '2024年10月',
+    period: '2025年10月',
     employmentType: '業務委託',
     teamScale: '全体1名／チーム1名',
     techStack: ['Go', 'Slack'],
-    responsibilities: ['要件定義', '設計', '実装', 'テスト'],
+    responsibilities: ['plateau2minecraftのエラー対応・改変', '地理座標変換ツールの開発'],
     activities: [
-      'OSSツール「plateau2minecraft」利用時のエラー解析と改善策立案',
-      '緯度経度とMinecraft座標を相互変換する支援ツールを開発',
+      'OSS「plateau2minecraft」で発生したエラーを解析し改修プランを策定',
+      'WGS84楕円体パラメータを用いた座標変換ライブラリをGoで実装',
+      'CLIツールとして単体・一括変換機能を提供し手作業を削減',
     ],
     achievements: [
-      '要件定義から実装まで迅速に遂行し顧客価値を最大化',
-      'スコープの絞り込みにより短期間で確実な施策を実現',
+      '建物下に地面生成を行いワールド整備工数を大幅に削減',
+      '短期間で顧客課題に直結する機能を実装し価値検証を完了',
     ],
   },
   {
@@ -204,15 +215,30 @@ const projects: Project[] = [
     period: '2024年10月〜2025年9月',
     employmentType: '業務委託',
     teamScale: '全体3名／チーム2名',
-    techStack: ['TypeScript', 'Next.js', 'Python', 'Django', 'PostgreSQL', 'AWS ECS', 'Discord'],
-    responsibilities: ['要件定義', '設計', '実装', 'テスト'],
+    techStack: [
+      'TypeScript',
+      'Next.js',
+      'MUI',
+      'Python',
+      'Django',
+      'PostgreSQL',
+      'AWS ECS',
+      'Discord',
+    ],
+    responsibilities: [
+      'PdM／エンジニアとして要件定義〜実装を担当',
+      'API設計とUX設計',
+      '運用機能の構築とリリースマネジメント',
+    ],
     activities: [
-      'PMとしてチームマネジメントを担当',
-      'Next.jsを用いたフロントエンドおよびDjangoによるバックエンド開発',
+      'Knox＋DRFを活用した認証基盤／API基盤を設計・実装',
+      'ロール制御や楽観的更新など運用要件に応じた仕組みを整備',
+      'Next.js＋MUIで顧客導線に合わせたUIを高速に試作',
     ],
     achievements: [
-      'ヒアリングから実装まで一貫して対応しローンチを達成',
-      '保守性・セキュリティを両立した高品質な設計を実現',
+      '要件定義からローンチまで一気通貫で実行し顧客満足度を向上',
+      '柔軟なUX設計で反復的な改善サイクルを短縮',
+      '運用・保守観点の要件を実装に織り込み安定稼働を実現',
     ],
   },
   {
@@ -225,53 +251,74 @@ const projects: Project[] = [
     employmentType: 'インターン',
     teamScale: '全体5名／チーム2名',
     techStack: ['Python', 'Flask', 'PostgreSQL', 'AWS EC2', 'Slack', 'Trello'],
-    responsibilities: ['設計', '実装', 'テスト'],
+    responsibilities: [
+      'Flask＋FirebaseによるWebアプリ設計・実装',
+      'GraphAI/Grapysを活用したOSS連携',
+      'OpenAPI仕様策定とドメインロジック実装',
+    ],
     activities: [
-      'ボードゲーム「Codenames」のWeb再現を担当',
-      'GraphAI (Grapys) への機能提案と実装計画策定',
+      '人気ボードゲーム「Codenames」をWeb向けに再設計',
+      'OSSパートナーと連携し新機能案と実装方針を提案',
+      'LLMインターフェースの共通化を行い新機能の土台を整備',
     ],
     achievements: [
-      '認可を得てUI/UXを再現したWeb実装を完遂',
-      'OSS開発団体と連携し改善提案と実装に着手',
+      '直感的なUI/UXを再現しデモイベントで高評価を獲得',
+      'OSSコミュニティと協働し継続的な改善プロセスを確立',
+      'LLM活用の基盤を整備し後続開発の加速に貢献',
     ],
   },
   {
     id: 'b2b-event-check-in',
     title: 'BtoBイベント受付システム',
     summary:
-      '営業｜2025年10月｜業務委託｜全体2名／チーム1名｜PdM・フルスタック (要件定義〜テスト)',
+      '営業｜2024年10月｜業務委託｜全体2名／チーム1名｜PdM・フルスタック (要件定義〜実装)',
     industry: '営業',
-    period: '2025年10月',
+    period: '2024年10月',
     employmentType: '業務委託',
     teamScale: '全体2名／チーム1名',
-    techStack: ['TypeScript', 'Next.js', 'PostgreSQL', 'Windows', 'Discord'],
-    responsibilities: ['要件定義', '設計', '実装', 'テスト'],
+    techStack: [
+      'TypeScript',
+      'Next.js',
+      'Material Tailwind',
+      'SWR',
+      'Prisma',
+      'PostgreSQL',
+      'Windows',
+      'Discord',
+    ],
+    responsibilities: [
+      'プロダクトマネジメントとエンジニアリングを兼任',
+      '工数管理・スコープ設計・UI/UX設計',
+      'バルク入出力やオペレーション改善機能の実装',
+    ],
     activities: [
-      'プロダクトマネジメントおよびチームマネジメントを兼務',
-      'Next.jsを活用したフロントエンド・バックエンド実装を一気通貫で担当',
+      '来訪オペレーション全体をカバーするUI/UXを設計し試作',
+      '冪等性と文字化け防止を考慮したバルク入出力を整備',
+      'Next.js＋Prismaで業務フローを支えるAPIを短期間で提供',
     ],
     achievements: [
-      '適切なスコープ設計により工数を約半減',
-      '顧客の厳しいスケジュールに柔軟に対応し貢献',
+      '業務工数を半減させ半分の納期でリリースを達成',
+      '現場オペレーションを意識したUXで導入後の属人化を抑制',
+      'スコープ調整によりスケジュール制約下でも品質を担保',
     ],
   },
 ];
 
 const services = [
   {
-    title: 'Webアプリケーション開発',
+    title: 'PdM伴走と要件定義',
     description:
-      '要件定義からUI設計、フロントエンド・バックエンド実装、運用保守まで一気通貫で対応します。Next.jsやReact、Djangoを活用し、業務課題に合わせた堅牢なWebアプリケーションを構築します。',
+      '顧客ヒアリングから仕様策定、スコープ設計、リリース計画までを一気通貫で支援します。ビジネス価値を起点とした仮説検証サイクルの高速化が得意です。',
   },
   {
-    title: 'AI/データ活用プロトタイピング',
+    title: 'フルスタック開発・運用',
     description:
-      '機械学習モデルを用いたPoC開発や、生成AIを活用した業務効率化プロダクトの試作を得意としています。Pythonやクラウドサービスを組み合わせ、短期間で価値検証を行います。',
+      'Next.js・TypeScript・Go・Pythonを中心に、フロントエンドからバックエンド、クラウドインフラまで横断して実装します。運用基盤やオブザーバビリティの整備も対応可能です。',
   },
   {
-    title: '技術顧問・技術選定サポート',
+    title: 'AI/LLMプロトタイピング',
     description:
-      'スタートアップや新規事業に対し、技術的な意思決定を支援します。チームの開発体制構築、セキュリティレビュー、クラウドアーキテクチャ設計など、実務経験に基づくアドバイスを提供します。',
+      '生成AIやMLを活用したPoCを短期間で立ち上げ、LLMチューニングや安全性検証まで伴走します。AIプロダクト導入に必要な要件定義やガイドライン整備もサポートします。',
   },
 ];
 
@@ -311,7 +358,7 @@ export default function HomePage() {
         alternateName: 'Takashima Minato',
         url: siteUrl,
         description:
-          '高島 湊斗 (Takashima Minato) はTypeScriptとGo, Pythonを中心にフロントエンドからインフラまでを手がけるソフトウェアエンジニアです。',
+          '高島 湊斗 (Takashima Minato) はTypeScriptとGo, Pythonを中心に、要件定義からローンチまでを担うPdM兼フルスタックエンジニアであり、AIプロダクトの実装と検証を強みとしています。',
         jobTitle: 'フルスタックエンジニア',
         address: {
           '@type': 'PostalAddress',
@@ -338,7 +385,7 @@ export default function HomePage() {
         url: siteUrl,
         name: '高島 湊斗 – ポートフォリオ',
         description:
-          '高島 湊斗 (Takashima Minato) のポートフォリオサイト。TypeScriptやGo, Pythonを活用したフルスタックからインフラ領域の開発実績や受賞歴、資格、経歴を紹介しています。',
+          '高島 湊斗 (Takashima Minato) のポートフォリオサイト。要件定義からローンチまで伴走するPdM／フルスタック開発やAIプロダクトの実績、受賞歴、資格、経歴を紹介しています。',
         inLanguage: 'ja',
         publisher: {
           '@id': `${siteUrl}#person`,
@@ -373,7 +420,7 @@ export default function HomePage() {
             </h1>
             <p className="mt-2">静岡, 日本 | 実務経験年数: {experienceDuration}</p>
             <p className="mt-4">
-              Webアプリケーションをメインに開発するフルスタックエンジニアです。TypeScriptとGo, Pythonを主軸に、フロントエンドからインフラまで幅広く携わっています。情報処理安全確保支援士の資格を持ち、低レイヤー技術やコンパイラ開発にも興味があります。
+              要件定義から仕様策定、フルスタック実装までを一貫して担うPdM兼エンジニアです。TypeScript・Go・Pythonとクラウドを組み合わせ、仮説検証サイクルを高速に回しながら価値あるプロダクトを届けます。AIプロダクトの実装とLLM活用にも注力し、最優秀賞受賞や研究プロジェクトでも成果を上げています。
             </p>
             <div className="mt-6">
               <strong className="block text-base font-semibold text-slate-900">SNSリンク</strong>
