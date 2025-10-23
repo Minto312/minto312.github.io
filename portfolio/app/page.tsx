@@ -358,7 +358,7 @@ export default function HomePage() {
         alternateName: 'Takashima Minato',
         url: siteUrl,
         description:
-          '高島 湊斗 (Takashima Minato) はTypeScriptとGo, Pythonを中心に、要件定義からローンチまでを担うPdM兼フルスタックエンジニアであり、AIプロダクトの実装と検証を強みとしています。',
+          '高島 湊斗 (Takashima Minato) はTypeScriptとGo, Pythonを中心にフロントエンドからインフラまでを手がけるソフトウェアエンジニアです。',
         jobTitle: 'フルスタックエンジニア',
         address: {
           '@type': 'PostalAddress',
@@ -420,7 +420,7 @@ export default function HomePage() {
             </h1>
             <p className="mt-2">静岡, 日本 | 実務経験年数: {experienceDuration}</p>
             <p className="mt-4">
-              要件定義から仕様策定、フルスタック実装までを一貫して担うPdM兼エンジニアです。TypeScript・Go・Pythonとクラウドを組み合わせ、仮説検証サイクルを高速に回しながら価値あるプロダクトを届けます。AIプロダクトの実装とLLM活用にも注力し、最優秀賞受賞や研究プロジェクトでも成果を上げています。
+              Webアプリケーションをメインに開発するフルスタックエンジニアです。TypeScriptとGo, Pythonを主軸に、フロントエンドからインフラまで幅広く携わっています。情報処理安全確保支援士の資格を持ち、低レイヤー技術やコンパイラ開発にも興味があります。
             </p>
             <div className="mt-6">
               <strong className="block text-base font-semibold text-slate-900">SNSリンク</strong>
