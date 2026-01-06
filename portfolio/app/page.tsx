@@ -158,6 +158,66 @@ type Project = {
 
 const projects: Project[] = [
   {
+    id: 'digital-recipe-narrative-ai',
+    title: '生成AIを活用したナラティブ分析',
+    summary:
+      '官公庁｜2025年12月〜現在｜正社員｜全体35名／チーム15名｜LLMエンジニア (開発〜品質検証)',
+    industry: '官公庁',
+    period: '2025年12月〜現在',
+    employmentType: '正社員',
+    teamScale: '全体35名／チーム15名',
+    techStack: ['Slack'],
+    responsibilities: [
+      'プロダクト開発',
+      'LLMのチューニングおよび品質要件・安全性検証',
+    ],
+    activities: [
+      '生成AIを活用したナラティブ分析サービスの開発に参画',
+      'LLMの品質・安全性に関する検証を実施',
+    ],
+    achievements: [
+      '防衛装備庁との国プロに参画（NDA厳格のため詳細非公開）',
+    ],
+  },
+  {
+    id: 'tokyo-recurrent-navi',
+    title: '東京リカレントナビ - RAGチャットボット',
+    summary:
+      '教育｜2025年11月〜現在｜業務委託｜全体10名／チーム2名｜バックエンド・インフラ (設計〜実装)',
+    industry: '教育',
+    period: '2025年11月〜現在',
+    employmentType: '業務委託',
+    teamScale: '全体10名／チーム2名',
+    techStack: [
+      'Python',
+      'Azure Functions',
+      'PostgreSQL',
+      'pgvector',
+      'Terraform',
+      'Azure OpenAI',
+      'WordPress',
+      'さくらクラウド',
+      'Slack',
+    ],
+    responsibilities: [
+      'RAGチャットボット開発（東京都生涯学習講座検索システム）',
+      'サーバーレスバックエンド開発',
+      'ベクトルDB設計・ハイブリッド検索実装',
+      'Terraformによるインフラ自動化（IaC）',
+    ],
+    activities: [
+      'Azure OpenAI Embeddingsを用いたRAGパイプラインを構築',
+      'pgvectorとpg_trgmを組み合わせたハイブリッド検索を実装',
+      'VNet統合とNAT Gatewayによる固定送信元IP構成を実装',
+      'WordPressプラグインとして組み込み可能なチャットウィジェットを開発',
+    ],
+    achievements: [
+      '日本語クエリに対する検索精度を向上',
+      '外部API連携時のセキュリティ要件に対応',
+      '既存CMSへの導入障壁を低減',
+    ],
+  },
+  {
     id: 'behavior-analytics-portfolio',
     title: '行動分析AIポートフォリオサービス',
     summary:
