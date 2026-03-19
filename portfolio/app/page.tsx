@@ -170,10 +170,10 @@ const projects: Project[] = [
     id: 'digital-recipe-narrative-ai',
     title: '生成AIを活用したナラティブ分析',
     summary:
-      '官公庁｜2025年12月〜現在｜正社員｜全体35名／チーム15名｜LLMエンジニア (開発〜品質検証)',
+      '官公庁｜2025年12月〜現在｜業務委託｜全体35名／チーム15名｜LLMエンジニア (開発〜品質検証)',
     industry: '官公庁',
     period: '2025年12月〜現在',
-    employmentType: '正社員',
+    employmentType: '業務委託',
     teamScale: '全体35名／チーム15名',
     techStack: ['Slack'],
     responsibilities: [
