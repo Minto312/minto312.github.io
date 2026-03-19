@@ -132,6 +132,15 @@ const skillDefinitions: SkillDefinition[] = [
 
 const careers = [
   {
+    title: '代表取締役：株式会社Raimテクノロジーズ',
+    detail:
+      '株式会社Raimテクノロジーズ (2025年12月 – 現在)｜受託開発を基盤としたAI領域のプロダクト開発｜',
+    link: {
+      href: 'https://raim-tech.com',
+      label: '会社サイト',
+    },
+  },
+  {
     title: '運営：シンギュラリティバトルクエスト運営',
     detail:
       '未来キッズコンテンツ総合研究所 (2024年4月 – 現在)｜高校生向けAI/ICT競技大会の運営｜',
@@ -481,6 +490,9 @@ export default function HomePage() {
             <p className="mt-2">静岡, 日本 | 実務経験年数: {experienceDuration}</p>
             <p className="mt-4">
               Webアプリケーションをメインに開発するフルスタックエンジニアです。TypeScriptとGo, Pythonを主軸に、フロントエンドからインフラまで幅広く携わっています。情報処理安全確保支援士の資格を持ち、低レイヤー技術やコンパイラ開発にも興味があります。
+            </p>
+            <p className="mt-2">
+              また、株式会社Raimテクノロジーズ(<a href='https://raim-tech.com' target='blank'>https://raim-tech.com</a>)を設立し、代表取締役として受託開発を基盤にしつつ、AI・データ領域のプロダクト開発にも取り組んでいます。
             </p>
             <div className="mt-6">
               <strong className="block text-base font-semibold text-slate-900">SNSリンク</strong>
