@@ -104,6 +104,15 @@ const awards = [
       label: '詳細',
     },
   },
+  {
+    title: '第21回 情報危機管理コンテスト 経済産業大臣賞',
+    detail:
+      '2026年5月｜経済産業省｜1/38 (2.6%)',
+    link: {
+      href: 'https://sccs-jp.org/symposium30/',
+      label: '結果',
+    },
+  },
 ];
 
 type SkillDefinition = {
